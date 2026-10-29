@@ -1,7 +1,6 @@
 pipeline {
     agent any
     options { skipDefaultCheckout(true); disableConcurrentBuilds(); }
-    triggers { pollSCM('* * * * *') }
     environment {
         IMAGE = 'eremeev-aisen-student-api:v1.0-eremeev-aisen'
         STUDENT = 'Aisen Eremeev'
