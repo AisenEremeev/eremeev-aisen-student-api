@@ -36,7 +36,7 @@ class StudentApiTest {
         mvc.perform(delete("/api/students/999999")).andExpect(status().isNotFound());
     }
     @Test void displaysStudentName() throws Exception {
-        mvc.perform(get("/")).andExpect(status().isOk()).andExpect(jsonPath("$.student").value("CONTROLLED_FAILURE"));
+        mvc.perform(get("/")).andExpect(status().isOk()).andExpect(jsonPath("$.student").value("Aisen Eremeev"));
     }
     @Test void updatesStudentAndReturns404ForMissingId() throws Exception {
         Student saved=repository.save(new Student(new StudentRequest("Before", "before@example.test", "OLD")));
