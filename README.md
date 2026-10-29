@@ -45,3 +45,6 @@ Database secrets remain local in `.env`. Public SCM checkout and H2 tests do not
 require Jenkins credentials. If private SCM or a registry is added, store its
 credential in Jenkins Credentials and bind it only to the required stage.
 Never commit passwords: Git history and image layers can retain them.
+
+## CRUD feature by Aisen Eremeev
+PUT /api/students/{id} updates name, email and groupName; invalid input returns 400 and a missing ID returns 404. Automated tests verify persisted updates and missing records.
