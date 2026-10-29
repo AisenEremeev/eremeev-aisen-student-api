@@ -48,3 +48,6 @@ Never commit passwords: Git history and image layers can retain them.
 
 ## CRUD feature by Aisen Eremeev
 PUT /api/students/{id} updates name, email and groupName; invalid input returns 400 and a missing ID returns 404. Automated tests verify persisted updates and missing records.
+
+## Demonstration and polling
+See [Russian demonstration guide](docs/DEMO_RU.md). This documentation commit verifies the configured one-minute Jenkins SCM polling trigger.
