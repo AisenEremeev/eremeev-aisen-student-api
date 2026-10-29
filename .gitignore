@@ -2,6 +2,10 @@
 build/
 .env
 *.log
-backups/
+backups/*
+!backups/.gitkeep
 .idea/
 *.iml
+
+logs/*
+!logs/.gitkeep
