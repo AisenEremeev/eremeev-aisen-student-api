@@ -1,7 +1,7 @@
 # Eremeev Aisen Student API
 
 Author: Aisen Eremeev, IT2-2314.
-Project focus: Student API baseline.
+Project focus: reproducible Docker and Jenkins workflow.
 
 Spring Boot 3.5, Java 21, Gradle wrapper, PostgreSQL and Docker Compose.
 GET / displays the author and application version.
