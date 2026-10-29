@@ -16,7 +16,12 @@ public class StudentController {
         Student saved=repository.save(new Student(request));
         return ResponseEntity.created(URI.create("/api/students/"+saved.getId())).body(saved);
     }
-    // UPDATE_FEATURE
+    @PutMapping("/{id}")
+    public Student update(@PathVariable Long id, @Valid @RequestBody StudentRequest request) {
+        Student student=find(id);
+        student.apply(request);
+        return repository.save(student);
+    }
     @DeleteMapping("/{id}") @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id) { repository.delete(find(id)); }
     private Student find(Long id) {

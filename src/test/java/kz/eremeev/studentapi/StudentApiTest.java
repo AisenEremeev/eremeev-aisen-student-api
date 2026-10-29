@@ -38,5 +38,12 @@ class StudentApiTest {
     @Test void displaysStudentName() throws Exception {
         mvc.perform(get("/")).andExpect(status().isOk()).andExpect(jsonPath("$.student").value("Aisen Eremeev"));
     }
-    // UPDATE_TEST
+    @Test void updatesStudentAndReturns404ForMissingId() throws Exception {
+        Student saved=repository.save(new Student(new StudentRequest("Before", "before@example.test", "OLD")));
+        mvc.perform(put("/api/students/"+saved.getId()).contentType("application/json").content(body))
+            .andExpect(status().isOk()).andExpect(jsonPath("$.name").value("Aisen Eremeev"));
+        assertEquals("IT2-2314",repository.findById(saved.getId()).orElseThrow().getGroupName());
+        mvc.perform(put("/api/students/999999").contentType("application/json").content(body))
+            .andExpect(status().isNotFound());
+    }
 }
